@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="row">
+        <div class="col-lg-12">
+            <i class="fa fa-file-text fa-4x"></i>
+            <h1 class="page-header">	            
+	            Word <small>: Show All</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="">Home/Word</a>
+                </li>
+                <li class="active">ShowAllList</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    
+    
+    <div class="row">		
+		<div class="col-lg-12">
+			<h3>Add New Word</h3>
+		</div>
+		<div class="col-lg-12">
+			<b>Word :</b> 
+		</div>
+		<!-- /.col-lg-12 -->
+		
+		<div class="col-lg-12">
+			<input type="text" ng-model="wordObj.title"/>
+		</div>
+		<!-- /.col-lg-12 -->		
+		
+		<div class="col-lg-12">
+			<b>Meanings :</b> 
+		</div>
+		<!-- /.col-lg-12 -->
+		
+		<div class="col-lg-12" data-ng-repeat="mean in wordObj.meaning">
+			<input type="text" ng-model="mean"/>
+		</div>
+		
+		<div class="col-lg-12">
+			<b>Examples :</b> 
+		</div>
+		<!-- /.col-lg-12 -->
+		
+		<div class="col-lg-12" data-ng-repeat="examp in wordObj.example">
+			<input type="text" ng-model="examp"/>
+		</div>					
+	</div>
+	<!-- /.row -->
+
+</div>
