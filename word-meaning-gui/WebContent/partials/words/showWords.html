@@ -76,7 +76,13 @@
 				
 			<h1 class="page-header">
 				Word <small>: {{topic.word}}</small>
-				<a class="btn btn-xs btn-primary" href="#/topics/{{topic.id}}">Modify
+				<a class="btn btn-xs btn-primary" ng-click="showEditWord(topic)">Modify Word
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a class="btn btn-xs btn-primary" ng-click="showAddNewWord()">Add New Word
+					<i class="fa fa-angle-right"></i>
+				</a>
+				<a class="btn btn-xs btn-primary" ng-click="showDeleteWord(topic)">Delete Word
 					<i class="fa fa-angle-right"></i>
 				</a>
 			</h1>
@@ -94,7 +100,7 @@
 			<!-- {{topic|json}} -->
 
 			<hr>
-			<div class="resultsDisplay">
+			<div ng-show="showWordDetailsDiv" class="resultsDisplay">
 			
 				{{topic.word}}<sup>{{topic.type}}</sup>
 				
@@ -110,6 +116,51 @@
 					{{examm.id}} : {{examm.example}}
 				</div>
 			
+			</div>
+			
+			<div ng-show="showWodEditDiv" class="resultDisplay">
+			
+				<form ng-submit="editWordForm.submitTheForm()">
+				    <input type="text" id="word" ng-model="editWordForm.word" ng-minlength="1"/> Word <br/>
+				    <input type="text" id="type" ng-model="editWordForm.type" ng-minlength="1"/> Type <br/>
+				    Meanings:
+				    <div data-ng-repeat="meann in editWordForm.meanings">
+				    	<input type="text" id="meanings[$index]" ng-model="meann.meaning" ng-minlength="1"/> Type <br/>
+				    </div>
+				    Examples:
+				    <div data-ng-repeat="examm in editWordForm.examples">
+				    	<input type="text" id="examples[$index]" ng-model="examm.example" ng-minlength="1"/> Type <br/>
+				    </div>
+				
+				    <!-- <select ng-model="editWordForm.car">
+				      <option value="nissan">Nissan</option>
+				      <option value="toyota">Toyota</option>
+				      <option value="fiat">Fiat</option>
+				    </select> -->
+				
+				    <input type="submit" value="Submit Form"/> <input type="button" value="cancel"/>
+				
+				</form>
+			
+			</div>
+			
+			<div ng-show="showWodNewDiv" class="resultDisplay">
+				<form ng-submit="saveWordForm.submitTheForm()">
+				    <input type="text" id="name" ng-model="saveWordForm.name" ng-minlength="1"> Name <br/>
+				
+				    <select ng-model="saveWordForm.car">
+				      <option value="nissan">Nissan</option>
+				      <option value="toyota">Toyota</option>
+				      <option value="fiat">Fiat</option>
+				    </select>
+				
+				    <input type="submit" value="Submit Form">
+				
+				</form>
+			</div>
+			
+			<div ng-show="showDeleteWordDiv" class="resultDisplay">
+				Do you want to delete this word : 
 			</div>
 			<hr>
 		</div>

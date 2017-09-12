@@ -17,6 +17,46 @@ app
 					var counter = 1;
 					$scope.filteredItems = [];
 					$scope.showList = true;
+					$scope.showWodEditDiv=false;
+					$scope.showWordDetailsDiv=true;
+					$scope.showWodNewDiv=false;
+					$scope.showDeleteWordDiv=false;
+					
+					/////////////////////
+					$scope.showEditWord=function(topic){
+						$scope.showWodEditDiv=true;
+						$scope.showWordDetailsDiv=false;
+						$scope.showWodNewDiv=false;
+						$scope.showDeleteWordDiv=false;
+					};
+					
+					$scope.showAddNewWord=function(){
+						$scope.showWodEditDiv=false;
+						$scope.showWordDetailsDiv=true;
+						$scope.showWodNewDiv=false;
+						$scope.showDeleteWordDiv=false;
+					};
+					
+					$scope.showDetailsWord=function(){
+						$scope.showWodEditDiv=false;
+						$scope.showWordDetailsDiv=true;
+						$scope.showWodNewDiv=false;
+						$scope.showDeleteWordDiv=false;
+					};
+					
+					$scope.showDeleteWord=function(topic){
+						$scope.showWodEditDiv=false;
+						$scope.showWordDetailsDiv=false;
+						$scope.showWodNewDiv=false;
+						$scope.showDeleteWordDiv=true;
+					};
+					
+					$scope.cancelButtonAction=function(){
+						$scope.showDetailsWord();
+					};
+					
+					
+					///////////////////////
 
 					$scope.showTopicsList = function() {
 						$scope.showList = !$scope.showList;
@@ -47,6 +87,7 @@ app
 					$scope.idSelectedVote = null;
 					$scope.setSelected = function(idSelectedVote) {
 						$scope.idSelectedVote = idSelectedVote;
+						$scope.showDetailsWord();
 					};
 
 					$scope.showAt = function(indexVal) {
