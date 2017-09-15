@@ -1,0 +1,5 @@
+<div data-ng-repeat="meann in saveWordForm.meanings" class="col-lg-12">
+ 	<input type="text" id="meanings[$index]" ng-model="meann.meaning" ng-minlength="1"/>
+ 	<button class="lalChaukor" ng-show="$last" ng-click="removeChoice()">-</button>
+ 	<button class="lalChaukor" ng-show="$last" ng-click="addNewChoice()">+</button>
+ </div>

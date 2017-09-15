@@ -22,19 +22,46 @@ app
 					$scope.showWodNewDiv=false;
 					$scope.showDeleteWordDiv=false;
 					
+					$scope.editWordForm={};
+					
+					$scope.saveWordForm={
+					        "id": "",
+					        "word": "",
+					        "type": "",
+					        "meanings": [],
+					        "examples": []
+					    };
+					
 					/////////////////////
 					$scope.showEditWord=function(topic){
 						$scope.showWodEditDiv=true;
 						$scope.showWordDetailsDiv=false;
 						$scope.showWodNewDiv=false;
 						$scope.showDeleteWordDiv=false;
+						
+						$scope.editWordForm={
+						        "id": $scope.topic.id,
+						        "word": $scope.topic.word,
+						        "type": $scope.topic.type,
+						        "meanings": $scope.topic.meanings,
+						        "examples": $scope.topic.examples
+						    };
+						
 					};
 					
 					$scope.showAddNewWord=function(){
 						$scope.showWodEditDiv=false;
-						$scope.showWordDetailsDiv=true;
-						$scope.showWodNewDiv=false;
+						$scope.showWordDetailsDiv=false;
+						$scope.showWodNewDiv=true;
 						$scope.showDeleteWordDiv=false;
+						
+						$scope.saveWordForm={
+						        "id": "",
+						        "word": "",
+						        "type": "",
+						        "meanings": [],
+						        "examples": []
+						    };
 					};
 					
 					$scope.showDetailsWord=function(){
